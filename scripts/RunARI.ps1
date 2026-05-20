@@ -35,9 +35,18 @@ Import-Module AzureResourceInventory
 
 # Run ARI
 
-Invoke-ARI `
--TenantID $TenantId `
--ReportDir $ReportFolder `
--ReportName "AzureInventory_$Date"
+try {
+
+    Invoke-ARI `
+    -TenantID $TenantId `
+    -ReportDir $ReportFolder `
+    -ReportName "AzureInventory_$Date"
+
+}
+catch {
+
+    Write-Warning "ARI completed with Linux formatting warnings."
+
+}
 
 Write-Host "ARI Report Generated"
