@@ -39,3 +39,42 @@ jobs:
       with:
         name: AzureInventoryReport
         path: reports/*.xlsx
+
+    - name: Send Email
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        
+        username: ${{ secrets.SMTP_USERNAME }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        
+        subject: Azure Inventory Report
+        
+        to: |
+          sumitlad@synergetics-consulting.com,
+          ganeshkhole@synergetics-consulting.com
+          
+        cc: |
+          moizjawadwala@synergetics-consulting.com,
+          sunnyrana@synergetics-consulting.com
+          
+        from: Azure Inventory Automation
+        
+        body: |
+          Hello Team,
+          Please find attached latest Azure Resource Inventory Report.
+          
+          Regards,
+          Yogesh
+
+        attachments: reports/*.xlsx
+    
+
+
+
+
+
+
+
