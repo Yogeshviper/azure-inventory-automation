@@ -1,0 +1,36 @@
+name: Azure Inventory Automation
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-ari:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Install PowerShell Modules
+      shell: pwsh
+      run: |
+        Install-Module Az -Force -Scope CurrentUser
+        Install-Module AzureResourceInventory -Force -Scope CurrentUser
+
+    - name: Run ARI Script
+      shell: pwsh
+      env:
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      run: |
+        ./scripts/RunARI.ps1
+
+    - name: Upload Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: AzureInventoryReport
+        path: reports/*.xlsx
