@@ -60,7 +60,7 @@ jobs:
           sumitlad@synergetics-consulting.com
   
           
-        from: Azure Inventory Automation
+        from: ${{ secrets.SMTP_USERNAME }}
         
         body: |
           Hello Team,
