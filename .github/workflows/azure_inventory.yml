@@ -2,7 +2,7 @@ name: Azure Inventory Automation
 
 on:
   schedule:
-#    - cron: '30 9 * * *'
+    - cron: '30 9 * * *'
   workflow_dispatch:
 
 jobs:
@@ -53,12 +53,12 @@ jobs:
         subject: Azure Inventory Report
         
         to: |
-          sumitlad@synergetics-consulting.com,
-          ganeshkhole@synergetics-consulting.com
+          yogeshkhairnar@synergetics-consulting.com
+          
           
         cc: |
-          moizjawadwala@synergetics-consulting.com,
-          sunnyrana@synergetics-consulting.com
+          sumitlad@synergetics-consulting.com
+  
           
         from: Azure Inventory Automation
         
