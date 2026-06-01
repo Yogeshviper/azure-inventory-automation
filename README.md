@@ -210,12 +210,3 @@ SMTP_PASSWORD
 ```text
 GitHub → Actions → Azure Inventory Automation → Run Workflow
 ```
-
----
-
-
-
-
----
-
-⭐ If you found this project useful, consider starring the repository.
