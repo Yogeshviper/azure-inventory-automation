@@ -213,15 +213,6 @@ GitHub → Actions → Azure Inventory Automation → Run Workflow
 
 ---
 
-## 📊 Sample Deliverables
-
-✅ Azure Inventory Report (.xlsx)
-
-✅ GitHub Artifact
-
-✅ Email Notification
-
-✅ Scheduled Execution
 
 
 
